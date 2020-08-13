@@ -417,8 +417,298 @@ for i in range(len(subject)):
     print ('{} average: {}'.format(sub.title(), av))
 
 
+#用for迴圈寫出各區溫度轉攝氏華氏
+    
+c=[30,32,38,23,40]
+f=[]
+for i in c:
+    d=(i*9/5+32)
+    if(d>=100):
+        f.append(d)
+    print(f)
+    
+c=[30,32,38,23,40] 
+t=[y*9/5+32 for y in c if y*9/5+32>=100]
+    
+    
+#99乘法表
+for i in range(1,10):
+    for a in range(1,10):
+        s="{:2d}*{:2d}={:2d}".format(i,a,i*a)
+        print(s)
+    
+    
+fruits1 = ['蘋果', '香蕉', '西瓜', '水蜜桃', '百香果']
+fruits2 = ['香蕉', '芭樂', '西瓜']
+print("目前fruits2串列 : ", fruits2)
+for fruit in fruits2[:]:
+    if fruit in fruits1:
+        fruits2.remove(fruit)
+        print("刪除 {} ".format(fruit))
+print("最後fruits2串列 : ", fruits2)
 
+
+s = []
+for i in range (1, 101):
+    if i%2 == 0:
+        s.append(i)
+print (s)        
+
+
+# more simple:    
+s = [x for x in range (1, 101) if x % 2 == 0]
+
+
+star='白羊座、金牛座、双子座、巨蟹座、狮子座、处女座、天秤座、天蝎座、射手座、摩羯座、水瓶座、双鱼座'.split('、')
+a="A B AB C".split(" ")
+pa=[[x,y]for x in star for y in a]
+print(pa, len(pa))
+
+
+#break 遇到即停止迴圈
+g = [10,20,30,-10, 34, 9, 100]
+s = 0
+for i in g:
+    if i <0:
+        print ('Error')
+        break
+    s += i
+    print (s)
+
+#continue 會直接跳到下一迴圈
+g = [10,20,30,-10, 34, 9, 100]
+s = 0
+for i in g:
+    if i <0:
+        print ('Error')
+        continue
+    s += i
+    print (s)
+
+
+
+#判斷質數
+g=int(input("輸入一個數="))
+if g==2:
+    print("{}是質數".format(g))
+else:
+    for a in range(2,g):
+        if g % a==0:
+            print("{}不是質數".format(g))
+            break
+    else:
+        print("{}是質數拉幹".format(g))
+
+
+#while迴圈  符合條件即進入迴圈 若否則停止
+s=[]
+t=0
+g=int(input("grade=?"))
+while (g>=0):
+    t+=g
+    s.append(g)
+    g=int(input("grade=?"))
+    print(s,t//len(s))
+
+
+fee=50000
+a=1
+while (fee <=60000):
+    print(a,fee)
+    fee=round(fee*1.05)
+    a+=1
+print("{}年後,學費為:{}".format(a,fee))
+
+
+
+#enumerate
+c_degrees = [30, 32, 38, 23, 40]
+city = ['taipei', 'taichung', 'KH', 'HK', 'TC']
+f = []
+for i, c_degree in enumerate(c_degrees):    #enumerate(c_degree為元素值)
+    f_degree = c_degree * 9/5 + 32
+    print (city[i], f_degree)              #i隨元素值往後變動
+
+
+
+# random 修改英數自的成績，英文介於 20-80; 數學 30-90; 自: 40-100
+#用for迴圈
+sc = [[1, '洪錦魁', 80, 95, 88, 0, 0, 0],
+      [2, '洪冰儒', 98, 97, 96, 0, 0, 0],
+      [3, '洪雨星', 91, 93, 95, 0, 0, 0],
+      [4, '洪冰雨', 92, 94, 90, 0, 0, 0],
+      [5, '洪星宇', 92, 97, 80, 0, 0, 0],
+     ]
+
+import random as r
+for st in sc:
+    st[2]=r.randint(20,80)
+    se[3]=r.randint(30,90)
+    se[4]=r.randint(40,100)
+    se[5]=se[2]+se[3]+se[4]
+    se[6]=se[5]//3
     
+sc.sort(key = lambda x: x[5], reverse=True)
+for st in sc:
+    st[-1] = sc.index(st)+1
+
+
+
+#猜數字
+#讓電腦由1-100 亂數取一個數字讓你猜，提示你高一點或低一點，最後猜到後，印出答案與你猜的次數。
+#若五次猜不到就跳出，一樣印出答案，和你依次猜的數字
+import random as r
+x=r.randint(1,100)
+num=int(input("猜一個數字"))
+a=1
+guess=[num]
     
+while (num!=x and a<=4):
+    if (num>x):
+        print("再低一點")
+    else:
+        print("再高一點")
+    a+=1
+    guess.append(num)
+    print("猜第{}次".format(a))
+    num=int(input("猜一個數字"))
+   
+if (num==x):
+    print("恭喜答對了，這個數字是:{}".format(x))
+else:   
+    print("超過5次了,你猜的數字有{}但不是答案:{}".format(guess,x))
     
+
+#tuple、zip
     
+fields = ['Name', 'Age', 'Hometown']
+info = ['Peter', '30', 'Chicago']
+zipData = zip(fields, info)         # 執行zip
+print(type(zipData))                # 列印zip資料類型
+player = list(zipData)              # 將zip資料轉成串列
+print(player)                       # 列印串列
+
+  
+        keys = ['magic', 'xaab', 9099]      # 定義串列元素是字串與數字
+tuple_keys = tuple(keys)            # 將串列改為元組
+print("列印串列", keys)
+print("列印元組", tuple_keys)
+tuple_keys.append('secret')         # 增加元素 --- 錯誤錯誤
+
+
+
+#enumerate 練習
+drinks = ("coffee", "tea", "wine")
+enumerate_drinks = enumerate(drinks)                # 數值初始是0
+print("轉成元組輸出, 初始值是 0 = ", tuple(enumerate_drinks))
+
+enumerate_drinks = enumerate(drinks, start = 10)    # 數值初始是10
+print("轉成元組輸出, 初始值是10 = ", tuple(enumerate_drinks))
+
+
+
+fields = ('Name', 'Age', 'Hometown')
+info = ('Peter', '30', 'Chicago')
+zipData = zip(fields, info)         # 執行zip
+print(type(zipData))                # 列印zip資料類型
+player = list(zipData)              # 將zip資料轉成串列
+print(player)   
+
+
+
+# Tuple 比較省
+li_grade = [11, 22, 99, 35, 59] # list
+tu_grade = (11, 22, 99, 35, 59) # tuple
+
+import sys
+print (sys.getsizeof(li_grade))
+print (sys.getsizeof(tu_grade))
+
+# Tuple 比較快
+import timeit
+do_list = timeit.timeit(stmt = '[1,2,3,4,5]',
+                        number = 10000000)
+do_tupl = timeit.timeit(stmt = '(1,2,3,4,5)',
+                        number = 10000000)
+
+#5.6.8.9的平均值、變異數、標準差
+vals = (5,6,8,9)
+mean = sum(vals) / len(vals)
+print("平均值 : ", mean)
+
+# 計算變異數
+var = 0
+for v in vals:
+    var += ((v - mean)**2)
+var = var / (len(vals)-1)
+print("變異數 : ", var)
+
+# 計算標準差
+dev = 0
+for v in vals:
+    dev += ((v - mean)**2)
+dev = (dev / (len(vals)-1))**0.5
+print("標準差 : ", dev)
+
+
+#dict{}
+#.key( 確認項目是否再矩陣中
+
+grade={'d123456':{'en':90,'math':80,'ch':60},
+       'd123457':{'en':77,'math':82,'ch':58},
+       'd123458':{'en':68,'math':88,'ch':95}}
+name=input("輸入你的學號:")
+if name in list(grade.keys()):
+    sub=input("哪一科?")
+    if sub in grade[name].keys():
+        print(grade[name][sub])
+    else:
+        print("404nofound")
+else:
+    print("學號都會打錯逆==")
+
+#.item()
+grade = {'d101': (100, 99, 87), 
+         'd102': (1,2,3),
+         'd110': (3,4,5)
+        }
+for (st, g) in grade.items():
+   print (st, sum(g))        
+   
+   
+   
+#values()
+cities = {'d101': '高雄', 
+         'd102': '台中',
+         'd110': '台北'
+        }
+
+city = input('Your city ')
+if city in cities.values():
+    print ('有人住在 ', city)
+else:
+    print ('沒有人住在 ', city)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
