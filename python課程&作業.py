@@ -383,6 +383,7 @@ for i in range(len(names)):
     print (grade_str)
     
     #請用 for 迴圈印出三個人的成績，及平均與三科的 平均成績
+    '''
 names = ['james', 'nick', 'jonathan']
 eng = [12,23,90]
 math=[100,99,98]
@@ -398,7 +399,7 @@ for i in range(len(names)):
     pphy=(pphy+phy[i])/
     grade_str = '{}: {}, {}, {}, 平均={}，各科平均;英文:{:4.1f}數學:{:4.1f}物理:{:4.1f}'.format(n, e, m, p, av,eeng,mmath,pphy)
     print (grade_str)
-    
+    '''
     
     
 # 一個個打的方法
@@ -415,6 +416,9 @@ g =[eng, math, phy]
 for i in range(len(subject)):
     sub, av = subject[i], round(sum(g[i])/len(g[i]),2)
     print ('{} average: {}'.format(sub.title(), av))
+
+
+#8/13上課
 
 
 #用for迴圈寫出各區溫度轉攝氏華氏
@@ -589,7 +593,7 @@ player = list(zipData)              # 將zip資料轉成串列
 print(player)                       # 列印串列
 
   
-        keys = ['magic', 'xaab', 9099]      # 定義串列元素是字串與數字
+keys = ['magic', 'xaab', 9099]      # 定義串列元素是字串與數字
 tuple_keys = tuple(keys)            # 將串列改為元組
 print("列印串列", keys)
 print("列印元組", tuple_keys)
@@ -690,23 +694,71 @@ else:
     print ('沒有人住在 ', city)
 
 
+#8/16功課
+
+#exercise 習題7.05
+
+m,n=eval(input("輸入m.n值:"))
+b=0
+while (n>=m ):
+    print("m要大於n")
+    m,n=eval(input("輸入m.n值:"))
+else:
+    if m>n:
+        k=n
+        for k in range(m+1):
+            b=b+k
+print("從{}加到{}的總合為:{}".format(n,m,b))
 
 
+#exercise 習題7.09
+
+b=1
+for a in range(1,101):
+    c=1                #當c=1寫在外面 下一次迴圈時c還是上一個值沒歸回1
+    p=a+1              #p改成a會有微小的誤差???為甚麼
+    for o in range(1,p):
+            c=c*o
+    b=b+(1/c)
+    if a%10==0:
+        print("經過第{:3d}次計算後的結果為{}".format(a,b))
+print("最終答案為",b)
 
 
+#階乘
+n=int(input("輸入n值:"))
+n=n+1
+s=1
+for i in range(1,n):
+    s=s*i
+    print(s,i)
+print(s)
 
 
+#exercise 習題7.13
+
+h=[2]
+g=0
+times=0
+long=int(input("你要找幾個質數:"))
+while (times<=long-2):
+    for a in range(2,g):
+        if g % a==0:
+            break
+        else:
+            if g in h:
+                 continue
+            else:
+                 h.append(g)
+                 times=times+1
+    g=g+1
+    
+print(h,"\n共{}個質數".format(len(h)))
 
 
+##exercise 習題7.16
 
-
-
-
-
-
-
-
-
+x,y=eval(input("輸入兩個數字")).split()
 
 
 
