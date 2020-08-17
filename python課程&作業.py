@@ -764,3 +764,327 @@ x,y=eval(input("輸入兩個數字")).split()
 
 
 
+
+
+#8/17上課
+
+
+#用for寫出排序
+tall = [171, 180, 165, 155]
+s = len(tall)
+for i in range(s-1):
+    print ('Round', i)
+    for j in range(s-1-i):
+        print ('Compare tall{} and tall{}'.format(j,j+1))
+        if tall[j] > tall[j+1]:
+            print ('Switch {} and {}'.format(tall[i], tall[j]))
+            temp = tall[j]
+            tall[j] = tall[j+1]
+            tall[j+1] = temp
+    print (tall)   
+
+#請設計一個字典紀錄中翻英的水果，使用者輸入中文水果名，就會輸出其英文名
+dict_fruit={'蘋果':'apple','香蕉':'banana','櫻桃':'cherry','葡萄':'grape','鳳梨':'pineapple'}
+name=input("水果名? :")
+if name in list(dict_fruit.keys()):
+   print(dict_fruit[name])
+else:
+     print("不知道")
+
+
+#請依據價格做排序 show 出
+
+noodles = {'牛肉麵':100, '肉絲麵':80, '陽春麵':60,'大滷麵':90, '麻醬麵':70}
+
+noodlesLst = sorted(noodles.items(), key = lambda x: x[1], reverse=True)
+#原本是依據中文排順序，使用lambda變成由數字排序
+#原本由小到大，用reverse變成相反
+print(noodlesLst)
+
+#列出大於70的麵
+noodles_1 = [(n,p) for n,p in noodles.items() if p > 70]
+
+noodles_1 = []
+for n, p in noodles.items():
+    if p> 70:
+        noodles_1.append((n, p))
+
+print (noodles_1)      
+
+
+
+song = "Are you sleeping, are you sleeping, Brother John, Brother John?\
+Morning bells are ringing, morning bells are ringing.\
+Ding ding dong, Ding ding dong."
+mydict = {}                         # 空字典未來儲存單字計數結果
+print("原始歌曲")
+print(song)
+
+# 以下是將歌曲大寫字母全部改成小寫
+songLower = song.lower()            # 歌曲改為小寫
+print("小寫歌曲")
+print(songLower)
+
+# 將歌曲的標點符號用空字元取代
+for ch in songLower:                
+        if ch in ".,?":
+            songLower = songLower.replace(ch,'')
+print("不再有標點符號的歌曲")    
+print(songLower)
+
+# 將歌曲字串轉成串列
+songList = songLower.split()        
+print("以下是歌曲串列")
+print(songList)                     # 列印歌曲串列
+
+# 方法一: 將歌曲串列處理成字典 
+for wd in songList:                 
+        if wd in mydict:            # 檢查此字是否已在字典內
+            mydict[wd] += 1         # 累計出現次數
+        else:
+            mydict[wd] = 1          # 第一次出現的字建立此鍵與值
+    
+print("以下是最後執行結果")
+print(mydict)                       # 列印字典
+
+
+# 方法二: 將歌曲串列處理成字典 
+mydict = {wd:songList.count(wd) for wd in songList}
+print("以下是最後執行結果")
+print(mydict)   
+
+
+#set(集合)與交集、聯集、差集
+
+a=['排球社','籃球社','吉他社','熱舞社']
+b=['登山社','籃球社','吉他社','熱舞社']
+c=['電腦社','康樂社','吉他社','象棋社']
+
+a = set(a)
+b = set(b)
+c = set(c)
+
+print (a & b & c)  #交集
+print (a.union(b)) #聯集
+print (a | b)  
+print (a - c)      #差集
+
+
+#密碼本加密
+
+abc = 'abcdefghijklmnopqrstuvwxyz'
+encry_dict = {}
+front3 = abc[:3]
+end23 = abc[3:]
+subText = end23 + front3
+encry_dict = dict(zip(subText, abc))    # 建立字典
+print("列印編碼字典\n", encry_dict)     # 列印字典
+
+msgTest = list('i love python')  
+cipher = []
+for i in msgTest:                       # 執行每個字元加密
+    v = encry_dict[i]                   # 加密
+    cipher.append(v)                    # 加密結果
+ciphertext = ''.join(cipher)            # 將串列轉成字串
+
+print("原始字串 ", msgTest)
+print("加密字串 ", ciphertext)
+
+
+
+
+
+moviedict={}
+name=input("輸入名字")
+movie=input("電影")
+while (len(moviedict)<=10):
+    moviedict[name]=movie
+    name=input("輸入名字")
+    movie=input("電影")
+print(moviedict)
+
+
+#第11章 function函數
+
+def greeting():
+    print("李易霖")
+    print("D0540320")
+    print("1997.12.4")
+    
+for a in range(5):
+    greeting()
+    
+
+def interest(interest_type,subject):
+    print("興趣是"+interest_type)
+    print("在"+interest_type+"中最喜歡的是"+subject)
+    print()
+
+interest('旅遊','敦煌')
+interest('程式設計','python')
+
+
+
+def subtract(x1, x2):
+    result = x1 - x2
+    print(result)               # 輸出減法結果
+    
+print("本程式會執行 a - b 的運算")     
+a = int(input("a = "))
+b = int(input("b = "))
+print("a - b = ", end="")       # 輸出a-b字串,接下來輸出不跳行
+subtract(a, b)
+
+
+def subtract(x1, x2):
+    result = x1 / x2
+    if x2==0:
+        print("b不可以是0")
+    print(result)               # 輸出減法結果
+    
+print("本程式會執行 a / b 的運算")     
+a = int(input("a = "))
+b = int(input("b = "))
+print("a / b = ", end="")       # 輸出a-b字串,接下來輸出不跳行
+subtract(a, b)
+
+
+def sub(x1,x2):
+    return x1-x2
+def add(x1,x2):
+    return x1+x2
+def cross(x1,x2):
+    return x1*x2
+def div(x1,x2):
+    return x1/x2
+
+print("輸入運算，1:加法、2:減法、3:乘法、4:除法")
+op=int(input("輸入1,2,3,4:"))
+a=int(input("a="))
+b=int(input("b="))
+
+if op==1:
+   print("a+b=",add(a,b))  
+elif op==2:
+    print("a-b=",sub(a,b))  
+elif op==3:
+    print("a*b=",cross(a,b)) 
+elif op==4:
+    if b==0:
+        print("b不可以是0")
+    else:
+        print("a/b=",div(a,b)) 
+else:
+    print("輸入錯誤")
+
+
+
+
+#用function算bmi
+    
+def bmi(tall,kg):
+    return round(kg/(tall/100)**2,2)
+
+tall,kg=eval(input("身高體重?"))
+
+print("你的bmi是:",bmi(tall,kg))
+
+return_bmi=bmi(tall,kg)
+normal=(return_bmi>=18.5 and return_bmi<=24)
+thin=(return_bmi<18.5)
+fat=(return_bmi>24)
+if (normal and return_bmi>=20 and return_bmi<=22):
+    print("hen棒喔 你是正常人")
+elif(return_bmi>22 and return_bmi<24):
+    print("有一點點ㄈ喔")    
+elif(return_bmi>18.5 and return_bmi<20):
+    print("有一點點瘦喔")    
+elif (fat):
+    print("去減肥啦幹")
+elif (thin):
+    print("記得多ㄘ一點")
+    
+#
+def guest_info(firstname, middlename, lastname, gender):
+    """ 整合客戶名字資料 """
+    if gender == "M":
+        welcome = lastname + middlename + firstname + '先生歡迎你'
+    else:
+        welcome = lastname + middlename + firstname + '小姐歡迎妳'
+    return welcome
+
+info1 = guest_info('宇', '星', '洪', 'M')
+info2 = guest_info('雨', '冰', '洪', 'F')
+print(info1)
+print(info2)
+
+#
+def build_vip(id, name):
+    """ 建立VIP資訊 """
+    vip_dict = {'VIP_ID':id, 'Name':name}
+    return vip_dict
+
+member = build_vip('101', 'Nelson')
+print(member)
+#ch11_18.py
+def build_vip(id, name, tel = ''):
+    """ 建立VIP資訊 """
+    vip_dict = {'VIP_ID':id, 'Name':name}
+    if tel:
+        vip_dict['Tel'] = tel
+    return vip_dict
+
+while True:
+    print("建立VIP資訊系統")
+    idnum = input("請輸入ID: ")
+    name = input("請輸入姓名: ")    
+    tel = input("請輸入電話號碼: ")        # 如果直接按Enter可不建立此欄位
+    member = build_vip(idnum, name, tel)   # 建立字典
+    print(member, '\n')
+    repeat = input("是否繼續(y/n)? 輸入非y字元可結束系統: ")
+    if repeat != 'y':
+        break
+
+print("歡迎下次再使用")
+
+
+# ch11_23.py
+def make_icecream(*toppings):
+    """ 列出製作冰淇淋的配料 """
+    print("這個冰淇淋所加配料如下")
+    for topping in toppings:
+        print("--- ", topping)
+
+make_icecream('草莓醬')
+make_icecream('草莓醬', '葡萄乾', '巧克力碎片')
+
+
+# ch11_24.py
+def make_icecream(icecream_type, *toppings):
+    """ 列出製作冰淇淋的配料 """
+    print("這個 ", icecream_type, " 冰淇淋所加配料如下")
+    for topping in toppings:
+        print("--- ", topping)
+
+make_icecream('香草', '草莓醬')
+make_icecream('芒果', '草莓醬', '葡萄乾', '巧克力碎片')
+
+
+# ch11_30_3.py
+def printlocal():
+    lang = "Java"
+    print("語言 : ", lang)
+    print("區域變數 : ", locals())
+msg = "Python"
+printlocal()
+print("語言 : ", msg)
+print("全域變數 : ",globals())
+
+
+
+
+
+
+
+
+
