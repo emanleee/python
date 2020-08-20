@@ -1082,6 +1082,307 @@ print("全域變數 : ",globals())
 
 
 
+#8/20上課
+
+
+#11章綜合練習
+
+#99乘法表 列表
+form=[]    
+for i in range(1,10):
+    for j in range(1,10):
+        c=i*j
+        form.append(c)
+        
+print(form[0:9])
+for k in range(1,9):
+    print(form[9*k:9*k+9])
+    
+    
+#ex2.1 輸入一整數，印出小於該數，能被 2,3 整除，但不能被 5 整除的數。
+#ex2.2 同上，定義一個方法 m(a, b, c), 回傳可以被 a, b 整除，不能被 c 整除的最小數
+x=eval(input("輸入一個數"))
+v = 0
+while True:
+    if (v > x):
+        print("太大了")
+        break
+    if (v%3 == 0 and v%2 == 0 and v%5 != 0 ):
+        print(v)
+    v=v+1;
+
+
+#ex2.2  
+def m(a, b, c):
+   v = 0 
+   while True:
+      if (v%a == 0 and v%b == 0 and v%c != 0):
+         break
+      v += 1; 
+   return v
+   
+print (m(2, 3, 5))       
+print (m(5, 7, 11))   
+
+#請印出 Fibonacci 序列，其中最大的數字不可大於 100
+x,y=eval(input("給個數字"))
+print(x,y,end=" ")
+while True:
+    z=x+y
+    print(z,end=" ")
+    if z>=200:
+        break
+    x=y
+    y=z
+print ('\n', y)  
+
+
+#輸入密碼，檢查是否滿足以下條件：
+#至少有一個小寫字母，且至少一個大寫字母
+#至少一個數字
+#最小 6 characters, 最多  12 characters
+
+psd=input("密碼")
+pwd=list(psd)
+
+lenpwd=False
+upperpwd=False
+lowerpwd=False
+decimalpwd=False
+
+if len(pwd)>6 and len(pwd)<12:
+    lenpwd=True
+
+for g in pwd:
+    if g.isdecimal():
+        decimalpwd=True
+    elif g.islower():
+        lowerpwd=True
+    elif g.isupper():
+        upperpwd=True    
+        
+if(lenpwd and upperpwd and lowerpwd and decimalpwd):
+    print("good password")
+else:
+    print("not good password")
+
+
+
+
+def checkpwd(pwd):
+    pwd=list(psd)
+    
+    lenpwd=False
+    upperpwd=False
+    lowerpwd=False
+    decimalpwd=False
+    
+    if len(pwd)>6 and len(pwd)<12:
+        lenpwd=True
+    
+    for g in pwd:
+        if g.isdecimal():
+            decimalpwd=True
+        elif g.islower():
+            lowerpwd=True
+        elif g.isupper():
+            upperpwd=True    
+            
+    if(lenpwd and upperpwd and lowerpwd and decimalpwd):
+        print("good password")
+    else:
+        print("not good password")
+
+   
+pwdSet = ('a',
+          'abcdef',
+          'Abc123def',
+          'abcdef123456abcdef',
+          'ABCDEFG123')
+
+for pwd in pwdSet:
+    if checkpwd(pwd):
+        print ('pwd {} is good\n'.format(pwd))
+    else:
+        print ('pwd {} is not good\n'.format(pwd))
+
+
+
+#輸入兩個數字，輸出其最大公因數 (Greatest Common Divisor) 與最小公倍數 (Lowest Common Multiple) 
+
+#最大公因數
+def gcd(a,b):
+    x=min(a,b)
+    for i in range(1,x+1):
+        if(a%i==0 and b%i==0):
+            g=i
+    return g
+
+a,b=eval(input("兩個數求最大公因數"))
+print("{},{}的最大公因數是{}".format(a,b,gcd(a,b)))
+#最小公倍數
+def lcm(a, b):    
+    return int(a*b/gcd(a,b))
+print("{},{}的最大公因數是{}".format(a,b,lcm(a,b)))
+
+
+
+#寫一個函式，將這三個 list 改用一個 dict 來紀錄，其結構為 
+#{monster_name: (attack_value, defense_value)}
+
+
+monster_list = ['地精', '狼人', '熊貓人']
+
+attack_list = [80, 90, 20]
+defense_list = [70, 92, 75]
+
+
+leng = len(monster_list)
+
+a = {}  
+for i in range(leng):
+    a[monster_list[i]] = (attack_list[i], defense_list[i])
+    
+    
+a = zip(monster_list, zip(attack_list, defense_list))
+a = dict(a)
+
+monster = input('要呼喚誰? ')
+
+if monster in list(a.keys()):
+    print (a[monster])   
+else:
+    print("e04nofound")
+    
+    
+        
+#EX7 社團活動    
+st = set()
+for i in range (1, 51):
+   st.add('S'+str(i)) 
+
+st_list = list(st)
+import random as r
+gitar = set(r.sample(st_list, 10)) #隨機抽出10個
+cs = set(r.sample(st_list, 10))    #隨機抽出10個
+
+print ('Gitar: ', gitar)
+print ('CS: ', cs)
+    
+print ('兩個都參加:', gitar & cs)
+print ('有 g 沒有 cs:', gitar - cs)
+print ('有 g 或 cs:', gitar | cs)
+
+
+
+
+ch2eng = {'貓': 'cat',
+         '狗': 'dog'}
+
+def gen_eng2ch(d):
+    d2 = {}
+    for ch, eng in d.items():
+        d2[eng] = ch
+    print (d2)    
+    return d2
+    
+eng2ch = gen_eng2ch(ch2eng)    
+
+while True:
+    r = input('please select 1) eng2ch 2) ch2eng 3) exit')
+    if r == '3':
+        break
+    elif r == '1':
+        w = input('Please input a eng: ')
+        print ('The ch of {} is {}'.format(w, eng2ch[w]))
+    elif r == '2':
+        w = input('Please input a ch: ')
+        print ('The eng of {} is {}'.format(w, ch2eng[w]))
+    else:
+        print ('error input')
+
+
+
+p = '妙蛙種子 妙蛙草 妙蛙花 小火龍'.split()
+j = 'フシギダネ フシギソウ フシギバナ ヒトカゲ'.split()
+pro = '草 草 毒 火'.split()
+tall = (20, 50, 10, 70)
+
+x = tuple(zip(j, pro, tall))
+pakamo = dict(zip(p, x))
+
+pakamo_tall = sorted(list(pakamo.values()), 
+                     key = lambda x: x[2],
+                     reverse = True)
+
+#使用Python 處理CSV 文件
+import csv
+
+fn = 'csvReport.csv'
+with open(fn) as csvFile:               # 開啟csv檔案
+    csvReader = csv.reader(csvFile)     # 讀檔案建立Reader物件csvReader
+    listReport = list(csvReader)        # 將資料轉成串列    
+
+title = listReport[0]
+listReport = listReport[1:]
+
+for i in range(0, len(listReport)):
+    listReport[i][3] = int(listReport[i][3])
+    listReport[i][4] = int(listReport[i][4])
+    listReport[i][5] = int(listReport[i][5])
+    for j in range(len(title)):        
+       print ("{}: {}".format(title[j], listReport[i][j]))
+    print ()   
+
+listReport.sort(key = lambda x: x[-2])
+
+print(listReport)  
+
+
+#喜好電影
+import csv
+fn = 'movie.csv'
+with open(fn) as csvFile:               # 開啟csv檔案
+    csvReader = csv.reader(csvFile)     # 讀檔案建立Reader物件
+    movies = list(csvReader)        # 將資料轉成串列    
+
+p = movies[0][1:]
+movies = movies[1:]
+
+like = {}
+for i in range(len(p)):
+    v = []
+    for m in movies:
+        v.append(int(m[i+1]))
+    print (v)    
+    like[p[i]] = tuple(v)
+
+def dist(a, b):
+    # print (like[a], like(b))
+    leng = len(like[a])
+    t = 0
+    for i in range (leng):
+        t += (like[a][i]-like[b][i])**2
+    return t**0.5    
+        
+a = 'Nick'
+b = 'John'
+c = 'Jonathan'
+d = 'Lee'
+print (dist(a, b))    
+print (dist(a, d))    
+print (dist(c, d))    
+print (dist(a, c)) 
+
+
+
+
+
+
+
+
+
+
 
 
 
