@@ -878,8 +878,7 @@ front3 = abc[:3]
 end23 = abc[3:]
 subText = end23 + front3
 encry_dict = dict(zip(subText, abc))    # 建立字典
-print("列印編碼字典\n", encry_dict)     # 列印字典
-
+print("列印編碼字典\n", encry_dict,"\n\n\n")     # 列印字典
 msgTest = list('i love python')  
 cipher = []
 for i in msgTest:                       # 執行每個字元加密
