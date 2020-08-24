@@ -758,7 +758,7 @@ print(h,"\n共{}個質數".format(len(h)))
 
 ##exercise 習題7.16
 
-x,y=eval(input("輸入兩個數字")).split()
+x,y=eval(input("輸入兩個數字")).split(' ')
 
 
 
