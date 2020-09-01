@@ -4,10 +4,11 @@ Spyder Editor
 
 This is a temporary script file.
 """
+'''
 FLOOR(4.5)+FLOOR(-4.5)
 • CEIL(4.5) + CEIL(-4.5)
 • 20 ∗ ARCTAN 1/7  + 8 ∗ ARCTAN 3/79
-
+'''
 
 
 import numpy as np
@@ -57,7 +58,7 @@ print(y[y>6])
 print(y.sum(axis=0))
 print(y.sum(axis=1))
 
-
+#黑白視窗
 import cv2 
 img1=np.zeros([512,512],dtype="uint8")
 img2=np.ones([512,512],dtype="float32")
@@ -65,7 +66,7 @@ cv2.imshow("test1",img1)
 cv2.imshow("test2",img2) 
 cv2.waitKey()
 
-
+#黑白格子
 import numpy as np
 import cv2 
 img=np.zeros([500,500],dtype="uint8")
@@ -77,5 +78,15 @@ for i in range(5):
                     img[i*100+k,j*100+l]=255
 cv2.imshow("test",img) 
 cv2.waitKey()        
+
+
+
+img=np.zeros([500,500],dtype="float32")
+for m in range(500):
+    for n in range(500):
+        
+
+
+
 
 
