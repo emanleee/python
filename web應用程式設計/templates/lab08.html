@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課表美化&建網頁的連結</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <style>
+        span {
+            font-size: 20px;
+            color: darkorchid
+        }
+
+        table,
+        td,
+        th.italic {
+            /* font-style: italic; */
+            border-radius: 10px;
+            font-family: 標楷體;
+        }
+
+        table {
+            width: 400px;
+            height: 650px;
+            /* margin-left: auto;
+            margin-right: auto; */
+            border: 4px solid rgb(224, 230, 164);
+            background-color: rgb(174, 172, 211)
+        }
+
+        tr {
+            background-color: rgb(221, 255, 231)
+        }
+
+        td:hover {
+            background-color: rgb(151, 215, 240);
+            text-shadow: 10px 0px 5px rgb(136, 231, 80)
+        }
+
+        body {
+            /* background: url(image/cat4.jpg) no-repeat right fixed; */
+            background-color: rgb(240, 247, 201)
+        }
+
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+
+        header {
+            padding: 2rem;
+            grid-column: 1 / 4;
+            background-color: rgb(53, 89, 155);
+            color: rgb(213, 220, 231);
+            font-weight: 900;
+
+        }
+
+        .left-side {
+            grid-column: 1/ 2;
+        }
+
+        main {
+            grid-column: 2 /3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right-side {
+            grid-column: 3 / 4;
+        }
+
+        footer {
+            grid-column: 1 / 4;
+        }
+
+        .image {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            height: 200px;
+            width: 100px;
+            margin: -40px 0 0 -60px;
+            -webkit-animation: spin 4s linear infinite;
+            -moz-animation: spin 4s linear infinite;
+            animation: spin 4s linear infinite;
+        }
+
+        @-moz-keyframes spin {
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+        integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
+        crossorigin="anonymous"></script>
+    <div class="parent">
+
+        <header align="center"><br>逢甲大學課程檢索系統</br>
+
+        </header>
+        <button type="button" class="btn btn-outline-info"><i class="fas fa-cat fa-2x mr-3"></i>選課課表</button>
+        <button type="button" class="btn btn-outline-info"><i class="fas fa-fffcat fa-2x mr-3 fa-spin"></i>登入系統</button>
+        <button type="button" class="btn btn-outline-info"><i class="fab fa-gitkraken fa-2x mr-3"></i>相關網站</button>
+        <div class="left-side blue section" contenteditable>
+
+            <br>關注清單:李易霖</br>
+            <caption>109/上學期</caption>
+            <table border="2">
+
+                <tr>
+                    <th align="center"><span style=" color: Tomato;"><i class="fas fa-angry fa-spin "></i></span> </th>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                </tr>
+                <tr>
+                    <td>09:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>軟體工程專題</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>10:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>軟體工程專題</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>11:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>軟體工程專題</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>12:10</td>
+                    <td colspan="5" align="center">午休</td>
+
+                </tr>
+                <tr>
+                    <td>13:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>資訊概論</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>14:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>資訊概論</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>15:10</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                    <td>資訊概論</td>
+                    <td>python 基礎程式設計</td>
+                    <td>Web 基礎程式設計</td>
+                </tr>
+                <tr>
+                    <td>16:10</td>
+                    <td colspan="5" align="center">回家了</td>
+                </tr>
+            </table>
+        </div>
+        <main class="section coral" contenteditable ;>
+            <form>
+                <div class="form-group">
+                    <i class="far fa-dizzy"></i><label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <i class="far fa-dizzy"></i><label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+            <!-- <img src="image/555.jpg" alt="555" height="600px"> -->
+        </main>
+
+
+        <div>
+
+
+            <div style="font-size: 2rem;">
+                <div><i class="fas fa-car-crash fa-fw mr-5" style="background:DodgerBlue"></i>
+                    <button type="button" class="btn btn-outline-success">48763</button></div>
+                <div><i class="fas fa-baby-carriage fa-fw mr-5" style="background:SkyBlue "></i>
+                    <a href="https://coursesearch04.fcu.edu.tw/main.aspx?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTc3MjM1ODF9.KZ0DHinXVRBkbfHqkW70nzfAwnklt7zTIJW64vzW5fk"
+                        class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">真的選課系統</a></div>
+                <div><i class="fas fa-bus fa-fw mr-5" style="background:DodgerBlue "></i>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            網格架構 Flex與Grid 相關連結
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="http://140.134.27.90/">web上課網頁</a>
+                            <a class="dropdown-item" href="https://flexboxfroggy.com/#zh-tw">青蛙遊戲</a>
+                            <a class="dropdown-item" href="https://cssgridgarden.com/#zh-tw">花園遊戲</a>
+                            <a class="dropdown-item"></a>
+                        </div>
+                    </div>
+                </div>
+                <div><i class="fas fa-bus fa-fw mr-5" style="background:rgb(255, 63, 63) "></i>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            網頁製作 相關連結
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="https://github.com/kamranahmedse/developer-roadmap">網頁架設流程
+                                有中文版另外查</a>
+                            <a class="dropdown-item"
+                                href="https://techmoon.xyz/free-img/#%E4%BB%80%E9%BA%BC%E6%98%AF%E5%89%B5%E7%94%A8-CC%EF%BC%88Creative-Commons%EF%BC%89%EF%BC%9F">可商用免版權免費圖庫素材懶人包</a>
+                            <a class="dropdown-item" href="https://tw.wordpress.org/">WordPress</a>
+                            <a class="dropdown-item" href="https://www.weebly.com/?lang=zh_TW">weebly</a>
+                            <a class="dropdown-item" href="https://mobirise.com/">html page builder</a>
+                            <a class="dropdown-item" href="https://www.layoutit.com/">layoutit</a>
+                            <a class="dropdown-item" href="https://zh.wix.com/">Wix ADI</a>
+                            <a class="dropdown-item" href="https://html5up.net/">html5</a>
+                            <a class="dropdown-item"></a>
+                        </div>
+                    </div>
+                </div>
+                <div><i class="fas fa-caravan fa-fw mr-5" style="background:SkyBlue"></i>
+                    <a href="https://getbootstrap.com/docs/4.5/components/button-group/"
+                        class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">bootstrap元件</a>
+                </div>
+
+
+                <div><i class="fas fa-caravan fa-fw mr-5" style="background:SkyBlue"></i>
+                    <a href="https://fontawesome.com/" class="btn btn-secondary btn-lg active" role="button"
+                        aria-pressed="true">fontawesome 圖標</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <img class="image" src="image/xx.jpg" alt="wwwww">
+
+
+
+
+
+
+
+
+
+        <footer class="green section" align="center">
+            <hr>
+            <div class="alert alert-success" role="alert">
+                哈哈哈哈哈哈哈哈哈哈
+
+            </div>
+            </hr>
+        </footer>
+    </div>
+</body>
+
+</html>
