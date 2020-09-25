@@ -1,0 +1,18 @@
+{% extends "0925base.html"   %}
+{% block title %}首頁{% endblock %}
+{% block content %}
+<h1>Hello, world48763!</h1>
+{%from 'macro.html' import alert%}
+
+{%macro alert(text,type='primary')-%}
+<div class="alert alert-{{type}}" role="alert">
+{{text}}
+</div>
+
+{%- endmacro %}
+
+{{alert('alert')}}
+{{alert('2131','danger')}}
+
+
+{%   endblock   %}
