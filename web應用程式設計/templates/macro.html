@@ -1,0 +1,7 @@
+{% macro box(message='box',color='black') -%}
+<div style="border:{{color}} solid 1px;">{{message}}</div>
+{%- endmacro %}
+
+{% macro box2(message='box',color='black') -%}
+<div style="border:{{color}} solid 1px;">{{caller()}}</div>
+{%- endmacro %}
